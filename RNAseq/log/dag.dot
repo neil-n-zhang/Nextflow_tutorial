@@ -1,0 +1,38 @@
+digraph "dag" {
+p0 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.fromFilePairs"];
+p3 [label="QUANTIFICATION"];
+p0 -> p3 [label="read_pairs_ch"];
+
+p1 [shape=point,label="",fixedsize=true,width=0.1];
+p2 [label="INDEX"];
+p1 -> p2 [label="transcriptome"];
+
+p2 [label="INDEX"];
+p3 [label="QUANTIFICATION"];
+p2 -> p3;
+
+p3 [label="QUANTIFICATION"];
+p5 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p3 -> p5;
+
+p0 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.fromFilePairs"];
+p4 [label="FASTQC"];
+p0 -> p4 [label="read_pairs_ch"];
+
+p4 [label="FASTQC"];
+p5 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p4 -> p5;
+
+p5 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p6 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p5 -> p6;
+
+p6 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p7 [label="MULTIQC"];
+p6 -> p7;
+
+p7 [label="MULTIQC"];
+p8 [shape=point];
+p7 -> p8;
+
+}
